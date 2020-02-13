@@ -1,3 +1,1 @@
-# TelRan
-Basic Education
-hello
+Here you can find a basic education class
