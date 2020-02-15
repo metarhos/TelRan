@@ -104,17 +104,7 @@ public static int[] insertSorted(int[] ar, int number) {
 		return res;
 	}
 	
-
-									/* methods of the HW #3 */
-	
-/**
-	 * Assumption: no repeated numbers in each array, but
-	 * numbers in first array may be repeated in the second
-	 * @param ar1 - first array
-	 * @param ar2 - second array
-	 * @return array containing numbers of first and second arrays 
-	 * with no repetitions 
-	 */
+//array containing numbers of first and second arrays with no repetitions 
 public static int[] union (int ar1[], int ar2[]) {
 	int i1=ar1.length;
 	int i2=ar2.length;
@@ -143,14 +133,7 @@ public static int[] union (int ar1[], int ar2[]) {
 	return tmp;
 	}
 	
-	/**
-	 * Assumption: no repeated numbers in each array, but
-	 * numbers in first array may be repeated in the second
-	 * @param ar1 - first array
-	 * @param ar2 - second array
-	 * @return array containing common numbers between first and second arrays 
-	 * with no repetitions 
-	 */
+//array containing common numbers between first and second arrays with no repetitions
 public static int[] intersection (int ar1[], int ar2[]) {
 		
 		int i1=ar1.length;
@@ -176,14 +159,7 @@ public static int[] intersection (int ar1[], int ar2[]) {
 		return ar1;
 }
 		
-	/**
-	 * Assumption: no repeated numbers in each array, but
-	 * numbers in first array may be repeated in the second
-	 * @param ar1 - first array
-	 * @param ar2 - second array
-	 * @return array containing numbers of first array that are not repeated
-	 * 	in the second
-	 */
+//array containing numbers of first array that are not repeated in the second
 public static int[] difference (int ar1[], int ar2[]) {
 		
 		//если число первого массива присутствует во втором,, удалить. Если нет - оставить.
@@ -211,10 +187,49 @@ public static int[] difference (int ar1[], int ar2[]) {
 				i--;
 				i1--;
 			System.out.println(Arrays.toString(res));
-		
 		}
 		}return res;
 		
 	}
-	
+
+//Standart method array containing numbers of first and second arrays 
+public static int[] StUnion (int ar1[], int ar2[]) {
+	int res[] = Arrays.copyOf(ar1, ar1.length + ar2.length);
+	int resInd = ar1.length;
+	Arrays.sort(ar1);
+	for (int i = 0; i < ar2.length; i++) {
+		if (Arrays.binarySearch(ar1, ar2[i]) < 0) {
+			res[resInd++] = ar2[i];
+		}
+	}
+	return Arrays.copyOf(res, resInd);
 }
+
+//Atandart method array containing common numbers between first and second arrays with no repetitions 
+public static int[] StIntersection (int ar1[], int ar2[]) {
+	int res[] = new int[Math.min(ar1.length, ar2.length)];
+	int resInd = 0;
+	for (int i = 0; i < ar1.length; i++) {
+		if (search(ar2, ar1[i]) >= 0) {
+			res[resInd++] = ar1[i];
+		}
+	}
+	return Arrays.copyOf(res, resInd);
+}
+
+//Standart method array containing numbers of first array that are not repeated in the second
+public static int[] StDifference (int ar1[], int ar2[]) {
+	int[] res = new int[ar1.length];
+	int resInd = 0;
+	for (int i = 0; i < ar1.length; i++) {
+		if (search(ar2, ar1[i]) < 0) {
+			res[resInd++] = ar1[i];
+		}
+		
+	}
+	return Arrays.copyOf(res, resInd);
+}
+
+
+}
+
