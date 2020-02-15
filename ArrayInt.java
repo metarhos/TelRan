@@ -1,5 +1,5 @@
 package telran.util;
-
+//Method for Arrays same as copy, search, sort etc. Here my method and standart
 import java.util.Arrays;
 
 public class ArrayInt {
@@ -162,7 +162,7 @@ public static int[] intersection (int ar1[], int ar2[]) {
 //array containing numbers of first array that are not repeated in the second
 public static int[] difference (int ar1[], int ar2[]) {
 		
-		//если число первого массива присутствует во втором,, удалить. Если нет - оставить.
+		//ГҐГ±Г«ГЁ Г·ГЁГ±Г«Г® ГЇГҐГ°ГўГ®ГЈГ® Г¬Г Г±Г±ГЁГўГ  ГЇГ°ГЁГ±ГіГІГ±ГІГўГіГҐГІ ГўГ® ГўГІГ®Г°Г®Г¬,, ГіГ¤Г Г«ГЁГІГј. Г…Г±Г«ГЁ Г­ГҐГІ - Г®Г±ГІГ ГўГЁГІГј.
 		
 		int i1=ar1.length;
 		int res [] = ar1;
